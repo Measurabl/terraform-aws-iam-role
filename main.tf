@@ -25,7 +25,7 @@ data "aws_iam_policy_document" "assume_role" {
 
 module "aggregated_assume_policy" {
   # TODO: revert to using CP repo when this module is upgraded to 0.12
-  source           = "git::https://github.com/techfishio/terraform-aws-iam-policy-document-aggregator.git?ref=tags/0.2.0"
+  source           = "git::https://github.com/cloudposse/terraform-aws-iam-policy-document-aggregator.git?ref=tags/0.2.0"
   source_documents = data.aws_iam_policy_document.assume_role.*.json
 }
 
@@ -39,7 +39,7 @@ resource "aws_iam_role" "default" {
 
 module "aggregated_policy" {
   # TODO: revert to using CP repo when this module is upgraded to 0.12
-  source           = "git::https://github.com/techfishio/terraform-aws-iam-policy-document-aggregator.git?ref=tags/0.2.0"
+  source           = "git::https://github.com/cloudposse/terraform-aws-iam-policy-document-aggregator.git?ref=tags/0.2.0"
   source_documents = var.policy_documents
 }
 
